@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EmployeeForm from './components/EmployeeForm';  
+import EmployeeList from './components/EmployeeList';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         } />
         
         <Route path="/employee-form" element={<EmployeeForm />} />
-        
+        <Route path="/employee-list" element={<EmployeeList />} />
       </Routes>
     </Router>
   );
