@@ -41,11 +41,40 @@ class EmployeeForm extends React.Component {
         });
 
         localStorage.setItem('employees', JSON.stringify(updatedEmployees));
+
+        // Mock: This simulates sending employee data to a future Python backend
+        // The backend will be based on the "Employee Management System Functionality" project built in a previous course CPT 200 Fundamentals of Programming Languages
+        this.submitToBackend(newEmployee);
+    };
+
+    submitToBackend = (employee) => {
+        console.log("Mock: Would send employee to Python backend API →", employee);
     };
 
     render() {
         return (
-            <div>
+            <div style={{
+                margin: 0,
+                padding: 0,
+                paddingTop: '0.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                backgroundColor: '#fafafa',
+                minHeight: '100vh'
+            }}>
+                <img
+                    src="/mylogo.png"
+                    alt="My Logo"
+                    style={{
+                        width: '200px',
+                        maxWidth: '80%',
+                        height: 'auto',
+                        margin: '0 0 1rem 0',
+                        display: 'block'
+                    }}
+                />
+
                 <form className="employee-form" onSubmit={this.handleSubmit}>
                     <label>Name:</label>
                     <input
@@ -91,7 +120,9 @@ class EmployeeForm extends React.Component {
                     <ul>
                         {this.state.employees.map((emp, index) => (
                             <li key={index}>
-                                <strong>{emp.name}</strong> – {emp.title}, {emp.department} ({emp.email})
+                                <span style={{ whiteSpace: 'nowrap' }}>
+                                    <strong>{emp.name}</strong> – {emp.title}, {emp.department}, {emp.email}
+                                </span>
                             </li>
                         ))}
                     </ul>
